@@ -1,0 +1,44 @@
+The content below is only a placeholder and can be replaced.
+<div class="container">
+ <form #login1="ngForm" (submit)="submit(login1)">
+   <div class="form-group">
+<input  type="text" class="form-control"    #inputVar="ngModel"  ngModel
+name="input"    
+[ngClass]="{'is-invalid': inputVar.invalid && inputVar.touched}"
+required
+aria-describedby="inputHelp" 
+/>
+
+<br>
+<input 
+        type="email" 
+        class="form-control" 
+        id="exampleInputEmail12" 
+        name="email"
+        #emailVar = "ngModel"
+        ngModel
+        
+        [ngClass]= "{'is-invalid': emailVar.touched && emailVar.invalid}"
+        required
+        minlength="6"
+        aria-describedby="emailHelp" 
+        placeholder="Enter email">
+<button type="submit" class="btn btn-primary">submitt</button>{{"   "+"   "}}
+<button type="reset" class="btn btn-secondary">reset</button>{{"   "+"   "}}
+<button type="set" class="btn btn-light">set</button>
+</div>
+
+</form>
+
+<app-login2></app-login2>
+</div>
+<div class="container">
+        <ul class="nav nav-tabs">
+                <li routerLinkActive="active"  class="nav-item" style="padding-right:10px;">
+                <a routerLink="employee"  class="nav-link">home</a>  
+                </li>
+                <li routerLinkActive="active" class="nav-item"><a routerLink="list"class="nav-link">list</a></li>
+        </ul>
+        <router-outlet></router-outlet>
+</div>
+

@@ -1,0 +1,56 @@
+<div class="container">
+  <form #loginForm = "ngForm" (submit)='submitt(loginForm)'>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        id="exampleInputEmail1" 
+        name="email"
+        #emailVar = "ngModel"
+        ngModel
+        
+        [disabled]='con'
+        [ngClass]= "{'is-invalid': emailVar.touched && emailVar.invalid }"
+        minlength="6"
+        required
+        
+        aria-describedby="emailHelp" 
+        placeholder="Enter email">
+        <div [ngClass]= "{'invalid-feedback':emailVar.invalid }">
+          <label *ngIf = "emailVar.errors?.required"> *Email address is required </label>
+        </div>
+        <div [ngClass]="{'invalid-feedback':emailVar.invalid }">
+          <label *ngIf = "emailVar.errors?.minlength"> Minimum length of email should be 6 characters </label>
+        </div>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input 
+        type="password" 
+        class="form-control" 
+        name="pwd"
+        ngModel
+        minlength="3"
+      
+        #pwd = "ngModel"
+        required
+        [ngClass]= "{'is-invalid': pwd.invalid && pwd.touched}"
+        id="exampleInputPassword1" 
+        placeholder="Password">
+        <div [ngClass]= "{'invalid-feedback':pwd.invalid }">
+          <label *ngIf = "pwd.errors?.required"> *password required </label>
+        </div>
+        <div [ngClass]="{'invalid-feedback':pwd.invalid }">
+          <label *ngIf = "pwd.errors?.minlength"> Minimum length of password should be 6 characters </label>
+        </div>  
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>  
+<div [innerText]='grtTex()'>  </div>
